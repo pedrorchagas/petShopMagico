@@ -33,12 +33,37 @@ public class Main{
                         if (indexAnimal != 0) {
                             Animal animal = petShop.getAnimalPeloIndex(indexAnimal);
                             animal.mostrarSuasInformacoes();
-                            System.out.println("\n\n\n");
+                            System.out.println("\n\n");
+
+                            System.out.println(" Deseja adotar esse animal?");
+                            System.out.println(" Digite S, para adotar.");
+                            System.out.println(" Digite N, para não adotar.");
+
+                            char opcaoAdotar;
+                            opcaoAdotar = Character.toUpperCase(scanner.next().charAt(0));
+                            if (opcaoAdotar == 'S') {
+                                petShop.adotarAnimal(animal);
+                                System.out.printf(" Parabéns!! Você adotou um %s\n", animal.nomePopular());
+
+                                System.out.println(" Escreva um nome para o seu animal: ");
+                                String nomeAnimal = scanner.next();
+                                animal.setNome(nomeAnimal);
+
+                                animaisAdotados.add(animal);
+                            }
                         }
                     } while (indexAnimal != 0);
-                    // escolher adotar ou não
-
-                    // 
+                }
+                case 2: {
+                    System.out.println("\n");
+                    if (animaisAdotados.size() > 0) {
+                        for (Animal animal : animaisAdotados) {
+                            System.out.printf(" Animal: %-15s | Nome: %-15s | Idade: %d ", animal.nomePopular(), animal.getNome(), animal.getIdade());
+                        }
+                    } else {
+                        System.out.println(" Você ainda não possui animais adotados.");
+                    }
+                    System.out.println("\n");
                 }
             }
         } while (opcao != 0);

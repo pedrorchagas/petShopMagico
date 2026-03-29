@@ -23,4 +23,9 @@ public class PetShop {
         index--;
         return animaisDisponiveis.get(index);
     }
+
+    public void adotarAnimal(Animal animal) {
+        animal.setAdotado(true);
+        animaisDisponiveis.remove(animal);
+    }
 }
