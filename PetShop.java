@@ -1,12 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PetShop {
     private List<Animal> animaisDisponiveis = new ArrayList<>();
 
     public PetShop() {
-        animaisDisponiveis.add(new EspecieCanisLupus(2));
-        animaisDisponiveis.add(new EspecieCanisLupus(6));
+        // Define 4 cachorros aleatórios.
+        for (int i = 1; i < ThreadLocalRandom.current().nextInt(4); i++) {
+            animaisDisponiveis.add(new EspecieCanisLupus(ThreadLocalRandom.current().nextInt(11)));
+        }
     }
 
     public void mostrarAnimaisDisponiveis() {
@@ -24,8 +27,13 @@ public class PetShop {
         return animaisDisponiveis.get(index);
     }
 
-    public void adotarAnimal(Animal animal) {
+    public void entregarAnimal(Animal animal) {
         animal.setAdotado(true);
         animaisDisponiveis.remove(animal);
+    }
+
+    public void receberAnimal(Animal animal) {
+        animal.setAdotado(false);
+        animaisDisponiveis.add(animal);
     }
 }
