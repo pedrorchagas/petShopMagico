@@ -13,7 +13,7 @@ public class PetShop {
         System.out.println("\n\nOs animais disponiveis para adoção são: ");
         int index = 1;
         for (Animal animal : animaisDisponiveis) {
-            System.out.printf(" %-1d -> %-15s  | Idade: %d%n", index, animal.nomePopular(), animal.getIdade());
+            System.out.printf(" %-1d -> %-15s  | Idade: %d | Cor: %s%n", index, animal.nomePopular(), animal.getIdade(), animal.getCor());
             index++;
         }
         System.out.println("\n\n");

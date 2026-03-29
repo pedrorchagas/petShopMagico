@@ -1,9 +1,17 @@
+
+import java.util.concurrent.ThreadLocalRandom;
+
 public abstract class Animal implements ComportamentoAnimal {
+
+    private enum Cor {
+        PRETO, BRANCO, MARROM, AMARELO, LARANJA
+    }
 
     // Variaveis para o petShop
     private String nome;
     private final int idade;
     private boolean adotado;
+    private String cor;
 
     // Variaveis para a taxonomia
     protected boolean eucarionte;
@@ -12,8 +20,17 @@ public abstract class Animal implements ComportamentoAnimal {
     protected boolean embrionario;
 
     // Construtor base de animal, informação que é inerente a todos
-    public Animal(int idade) {
-        this.idade = idade;
+
+    private void setRandomCor() {
+        Cor[] cores = Cor.values();
+        this.cor = cores[ThreadLocalRandom.current().nextInt(cores.length)].toString();
+    }
+
+    public String getCor() {
+        if (multicelular) {
+            return this.cor;
+        }
+        return "Sem cor";
     }
 
     public String getNome() {
@@ -35,6 +52,13 @@ public abstract class Animal implements ComportamentoAnimal {
     public void setAdotado(boolean adotado) {
         this.adotado = adotado;
     }
+
+    public Animal(int idade) {
+        setRandomCor();
+        this.idade = idade;
+    }
+
+    // Contrato de ações que os animais devem realizar
 
     public abstract String nomePopular();
 
@@ -66,6 +90,10 @@ public abstract class Animal implements ComportamentoAnimal {
 
         if (heterotrofico) {
             System.out.println("  Nao produz o proprio alimento");
+        }
+
+        if (this.cor.isBlank() && multicelular) {
+            System.out.printf("  Sua cor é %s\n", this.cor);
         }
 
         alimentacao();

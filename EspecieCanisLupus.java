@@ -1,4 +1,5 @@
 public class EspecieCanisLupus extends GeneroCanis {
+    
     public EspecieCanisLupus(int idade) {
         super(idade);
     }
