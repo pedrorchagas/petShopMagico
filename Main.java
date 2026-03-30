@@ -113,7 +113,8 @@ public class Main{
                         System.out.println(" Digite o número do animal que você deseja devolver:");
                         int opcaoDevolucao = scanner.nextInt();
 
-                        Animal animal = petShop.getAnimalPeloIndex(opcaoDevolucao);
+                        Animal animal = animaisAdotados.get(opcaoDevolucao - 1);
+                        animaisAdotados.remove(animal);
                         petShop.receberAnimal(animal);
 
                         System.out.printf(" Você devolveu o animal %s - %s para o petshop.\n", animal.nomePopular(), animal.getNome());
