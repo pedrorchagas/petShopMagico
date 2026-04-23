@@ -61,7 +61,7 @@ public class Main{
                     System.out.println("\n");
                     if (!animaisAdotados.isEmpty()) {
                         for (Animal animal : animaisAdotados) {
-                            System.out.printf(" Animal: %-15s | Nome: %-15s | Idade: %d ", animal.nomePopular(), animal.getNome(), animal.getIdade());
+                            System.out.printf(" Animal: %-15s | Nome: %-15s | Idade: %d\n", animal.nomePopular(), animal.getNome(), animal.getIdade());
                         }
                     } else {
                         System.out.println(" Você ainda não possui animais adotados.");
@@ -77,7 +77,7 @@ public class Main{
                             int indexAnimal = 0;
                             for (Animal animal : animaisAdotados) {
                                 System.out.printf(" %d -> Animal: %-15s | Nome: %-15s | Idade: %d ", indexAnimal + 1, animal.nomePopular(), animal.getNome(), animal.getIdade());
-                                indexAnimal--;
+                                indexAnimal += 1;
                                 System.out.println("\n");
                             }
 

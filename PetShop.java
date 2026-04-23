@@ -9,12 +9,18 @@ public class PetShop {
         // Define até 4 cachorros aleatórios.
         int quantidadeCachorros = ThreadLocalRandom.current().nextInt(1, 5);
         for (int i = 0; i < quantidadeCachorros; i++) {
-            animaisDisponiveis.add(new EspecieCanisLupus(ThreadLocalRandom.current().nextInt(11)));
+            animaisDisponiveis.add(new EspecieCanisLupus(ThreadLocalRandom.current().nextInt(1, 11)));
         }
         // Define até 4 lartagixas
         int quantidadeLargatixas = ThreadLocalRandom.current().nextInt(1, 5);
         for (int i = 0; i < quantidadeLargatixas; i++) {
-            animaisDisponiveis.add(new EspecieHemidactylusMabouia(ThreadLocalRandom.current().nextInt(2)));
+            animaisDisponiveis.add(new EspecieHemidactylusMabouia(ThreadLocalRandom.current().nextInt(1, 2)));
+        }
+
+        // Define até 4 cerejeiras
+        int quantidadeCerejeira = ThreadLocalRandom.current().nextInt(1, 5);
+        for (int i = 0; i < quantidadeCerejeira; i++) {
+            animaisDisponiveis.add(new EspeciePrunusAvium(ThreadLocalRandom.current().nextInt(1, 100)));
         }
     }
 

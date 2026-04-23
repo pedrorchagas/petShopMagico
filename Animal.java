@@ -1,11 +1,12 @@
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Animal implements ComportamentoAnimal {
 
-    private enum Cor {
-        PRETO, BRANCO, MARROM, AMARELO, LARANJA
-    }
+    /*
+        Dominio -> Reino  -> Filo -> Classe -> Ordem -> Família -> Genero -> Espécie
+     */
 
     // Variaveis para o petShop
     private String nome;
@@ -19,11 +20,12 @@ public abstract class Animal implements ComportamentoAnimal {
     protected boolean heterotrofico;
     protected boolean embrionario;
 
+    protected List<String> Cor = new ArrayList<>();
+
     // Construtor base de animal, informação que é inerente a todos
 
-    private void setRandomCor() {
-        Cor[] cores = Cor.values();
-        this.cor = cores[ThreadLocalRandom.current().nextInt(cores.length)].toString();
+    public void setRandomCor() {
+        this.cor = Cor.get(ThreadLocalRandom.current().nextInt(0, Cor.size()));
     }
 
     public String getCor() {
@@ -54,7 +56,6 @@ public abstract class Animal implements ComportamentoAnimal {
     }
 
     public Animal(int idade) {
-        setRandomCor();
         this.idade = idade;
     }
 

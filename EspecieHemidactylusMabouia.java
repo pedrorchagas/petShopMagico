@@ -2,6 +2,10 @@ public class EspecieHemidactylusMabouia extends GeneroHemidactylus {
 
     public EspecieHemidactylusMabouia(int idade) {
         super(idade);
+        this.Cor.add("VERDE");
+        this.Cor.add("BRANCA");
+        this.Cor.add("BEGE");
+        setRandomCor();
     }
 
     @Override
